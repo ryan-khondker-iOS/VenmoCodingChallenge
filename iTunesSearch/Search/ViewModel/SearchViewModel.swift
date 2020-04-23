@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// View model for the Search page
 final class SearchViewModel: SearchViewModeling {
     var recentSearches = NSMutableArray()
     var documentPlistPath = ""
@@ -58,6 +59,11 @@ private extension SearchViewModel {
         }
     }
     
+    /**
+     This method adds the entered search term to the beginning of the list,
+     so that the most recently entered search term is at the top of the list.
+     Afterwards, we store the recent searches locally
+     */
     func updateRecentSearchesArray(searchTerm: String) {
         if recentSearches.count == 0 {
             recentSearches.add(searchTerm)

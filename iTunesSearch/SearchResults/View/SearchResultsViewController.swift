@@ -12,9 +12,11 @@ private enum Constants {
     static let cellIdentifier = "ResultsCell"
 }
 
+/// View controller class for the Search Results page
 final class SearchResultsViewController: UITableViewController {
     var viewModel: SearchResultsViewModeling?
     
+    /// Loading indicator to be displayed while we are fetching the search results
     let loadingIndicator = UIActivityIndicatorView(style: .large)
     
     override func viewDidLoad() {

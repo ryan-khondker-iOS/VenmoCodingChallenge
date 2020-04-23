@@ -9,43 +9,51 @@
 import UIKit
 
 final class ImageService {
-    class func getImage(imageUrl: String, completion: @escaping (UIImage?, Error?) -> ()) {
+    /**
+    This method is used to fetch the image data from the given image URL.
+    If we get valid data back from the API, we then create a UIImage object
+    and pass the image to the completion block. If we get an error when
+    fetching the image data, then we pass the error to the completion block
+    - parameter imageUrl: the URL of the image
+    - parameter completion: the completion block to be called once HTTP request is complete or if there are errors when making the request
+    */
+    class func getImage(imageUrl: String, completion: @escaping (Result<UIImage, Error>) -> ()) {
         if let image = GlobalCache.shared.imageCache.object(forKey: imageUrl as NSString) {
-            completion(image, nil)
+            completion(.success(image))
             return
         }
         guard let url = URL(string: imageUrl) else {
-            completion(nil, NetworkError.badUrl)
+            completion(.failure(NetworkError.badUrl))
             return
         }
         let session = URLSession.shared
         let task = session.dataTask(with: url) {
             data, response, error in
             if let error = error {
-                completion(nil, error)
+                completion(.failure(error))
                 return
             }
             
             guard let httpResponse = response as? HTTPURLResponse else {
-                completion(nil, NetworkError.badResponse)
+                completion(.failure(NetworkError.badResponse))
                 return
             }
             
             guard httpResponse.statusCode == 200 else {
-                completion(nil, NetworkError.httpError(code: httpResponse.statusCode))
+                completion(.failure(NetworkError.httpError(code: httpResponse.statusCode)))
                 return
             }
             
             guard let data = data else {
-                completion(nil, NetworkError.noData)
+                completion(.failure(NetworkError.noData))
                 return
             }
             guard let image = UIImage(data: data) else {
-                completion(nil, NetworkError.badData)
+                completion(.failure(NetworkError.badData))
                 return
             }
             GlobalCache.shared.imageCache.setObject(image, forKey: imageUrl as NSString)
-            completion(image, nil)
+            completion(.success(image))
             return
         }
         task.resume()

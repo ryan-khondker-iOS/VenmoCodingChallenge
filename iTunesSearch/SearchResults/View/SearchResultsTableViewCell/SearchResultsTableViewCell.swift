@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Displays each song returned by the iTunes API for the given search term
 class SearchResultsTableViewCell: UITableViewCell {
     @IBOutlet weak private var albumImageView: UIImageView!
     @IBOutlet weak private var titleLabel: UILabel!
@@ -20,8 +21,9 @@ class SearchResultsTableViewCell: UITableViewCell {
         albumLabel.text = song.album
         
         if let albumImageUrl = song.albumUrl {
-            ImageService.getImage(imageUrl: albumImageUrl) { [weak self] albumImage, error in
-                guard let strongSelf = self else { return }
+            ImageService.getImage(imageUrl: albumImageUrl) { [weak self] result in
+                guard let strongSelf = self,
+                    case let .success(albumImage) = result else { return }
                 DispatchQueue.main.async {
                     strongSelf.albumImageView.image = albumImage
                 }

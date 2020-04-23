@@ -10,6 +10,8 @@ import UIKit
 
 final class GlobalCache {
     static let shared = GlobalCache()
+    
+    /// Using a Global Cache to cache images
     var imageCache = NSCache<NSString, UIImage>()
     
     private init() {}

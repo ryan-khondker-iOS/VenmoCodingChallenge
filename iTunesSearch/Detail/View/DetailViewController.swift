@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 
+/// View controller class for the Song Details page
 class DetailViewController: UIViewController {
     @IBOutlet weak var albumImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -32,11 +33,12 @@ class DetailViewController: UIViewController {
         albumLabel.text = song.album
         
         if let albumImageUrl = song.albumUrl {
-            ImageService.getImage(imageUrl: albumImageUrl) { [weak self] albumImage, error in
-                guard let strongSelf = self else { return }
-                DispatchQueue.main.async {
-                    strongSelf.albumImageView.image = albumImage
-                }
+            ImageService.getImage(imageUrl: albumImageUrl) { [weak self] result in
+            guard let strongSelf = self,
+                case let .success(albumImage) = result else { return }
+            DispatchQueue.main.async {
+                strongSelf.albumImageView.image = albumImage
+            }
             }
         }
     }

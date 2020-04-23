@@ -9,11 +9,7 @@
 import UIKit
 import CoreData
 
-protocol SearchResultsViewModelDelegate: class {
-    func didGetSearchResults()
-    func didGetError(error: Error)
-}
-
+/// View model for the Search Results page
 final class SearchResultsViewModel: SearchResultsViewModeling {
     let searchTerm: String
     var songs: [Song] = []
@@ -43,23 +39,21 @@ final class SearchResultsViewModel: SearchResultsViewModeling {
         }
         
         // If no results from CoreData, then get the results from the API
-        ApiService.getResults(searchTerm: searchTerm) { [weak self] songResults, error in
+        ApiService.getResults(searchTerm: searchTerm) { [weak self] result in
             guard let strongSelf = self else { return }
             
-            if let err = error {
-                strongSelf.delegate?.didGetError(error: err)
-                return
-            }
-            
-            guard let results = songResults,
-                !results.songs.isEmpty else {
+            switch result {
+            case let .failure(error):
+                strongSelf.delegate?.didGetError(error: error)
+            case let .success(songResults):
+                guard !songResults.songs.isEmpty else {
                     strongSelf.delegate?.didGetError(error: NetworkError.noResults(searchTerm: strongSelf.searchTerm))
-                return
+                    return
+                }
+                strongSelf.songs = songResults.songs
+                CoreDataService.saveSearchResults(searchTerm: strongSelf.searchTerm, songs: songResults.songs)
+                strongSelf.delegate?.didGetSearchResults()
             }
-            
-            strongSelf.songs = results.songs
-            CoreDataService.saveSearchResults(searchTerm: strongSelf.searchTerm, songs: results.songs)
-            strongSelf.delegate?.didGetSearchResults()
         }
     }
     

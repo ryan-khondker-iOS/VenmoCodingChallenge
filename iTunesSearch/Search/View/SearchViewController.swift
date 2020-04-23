@@ -14,6 +14,7 @@ private enum Constants {
     static let recentSearchesHeaderCellIdentifier = "RecentSearchesHeader"
 }
 
+/// View controller class for the Search page
 final class SearchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var recentSearchesTableView: UITableView!

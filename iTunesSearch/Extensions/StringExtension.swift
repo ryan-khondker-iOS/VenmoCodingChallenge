@@ -9,6 +9,10 @@
 import Foundation
 
 extension String {
+    /**
+     Added this function to the String extension so that we can
+     properly encode the user-entered search term in the iTunes query URL
+     */
     func addPercentEncodingForSearchTerm() -> String? {
         let allowedCharacterString = "*-._ "
         let allowedCharacterSet = CharacterSet.alphanumerics.union(CharacterSet(charactersIn: allowedCharacterString))

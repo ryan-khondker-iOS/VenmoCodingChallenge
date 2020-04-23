@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Detail view model protocol
 protocol DetailViewModeling: class {
     var song: Song { get }
 }

@@ -20,7 +20,6 @@
 		0B17F5F72451C70D00BB04FC /* MockSearchResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B17F5F62451C70D00BB04FC /* MockSearchResultsViewModel.swift */; };
 		0B17F5FC2451EAEB00BB04FC /* MockDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B17F5FB2451EAEB00BB04FC /* MockDetailViewModel.swift */; };
 		0B17F5FF2451EF5900BB04FC /* validresponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 0B17F5FE2451EF5900BB04FC /* validresponse.json */; };
-		0B17F6012451FF2400BB04FC /* iTunesSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B17F6002451FF2400BB04FC /* iTunesSearchTests.swift */; };
 		0B17F603245200CE00BB04FC /* SearchResultsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B17F602245200CE00BB04FC /* SearchResultsViewControllerTests.swift */; };
 		0B1DE76A2450018D00FBA3AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1DE7692450018D00FBA3AB /* AppDelegate.swift */; };
 		0B1DE76C2450018D00FBA3AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1DE76B2450018D00FBA3AB /* SceneDelegate.swift */; };
@@ -73,7 +72,6 @@
 		0B17F5F62451C70D00BB04FC /* MockSearchResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSearchResultsViewModel.swift; sourceTree = "<group>"; };
 		0B17F5FB2451EAEB00BB04FC /* MockDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDetailViewModel.swift; sourceTree = "<group>"; };
 		0B17F5FE2451EF5900BB04FC /* validresponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = validresponse.json; sourceTree = "<group>"; };
-		0B17F6002451FF2400BB04FC /* iTunesSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesSearchTests.swift; sourceTree = "<group>"; };
 		0B17F602245200CE00BB04FC /* SearchResultsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewControllerTests.swift; sourceTree = "<group>"; };
 		0B1DE7662450018D00FBA3AB /* iTunesSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B1DE7692450018D00FBA3AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -144,7 +142,6 @@
 				0B17F5E62451BD2600BB04FC /* SearchResults */,
 				0B17F5E52451BD2100BB04FC /* Search */,
 				0B17F5DF2451BC7500BB04FC /* Info.plist */,
-				0B17F6002451FF2400BB04FC /* iTunesSearchTests.swift */,
 			);
 			path = iTunesSearchTests;
 			sourceTree = "<group>";
@@ -500,7 +497,6 @@
 				0B17F5E92451C17B00BB04FC /* MockSearchViewModel.swift in Sources */,
 				0B17F5F72451C70D00BB04FC /* MockSearchResultsViewModel.swift in Sources */,
 				0B17F5FC2451EAEB00BB04FC /* MockDetailViewModel.swift in Sources */,
-				0B17F6012451FF2400BB04FC /* iTunesSearchTests.swift in Sources */,
 				0B17F603245200CE00BB04FC /* SearchResultsViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

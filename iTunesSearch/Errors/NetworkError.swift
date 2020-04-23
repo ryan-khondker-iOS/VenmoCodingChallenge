@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Enum of errors we could get from the iTunes API or from getting the image data
 enum NetworkError: Error {
     case badUrl
     case badResponse

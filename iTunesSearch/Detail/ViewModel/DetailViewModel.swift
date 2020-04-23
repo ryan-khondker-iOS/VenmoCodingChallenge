@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// View model for the Song Details page
 final class DetailViewModel: DetailViewModeling {
     let song: Song
     

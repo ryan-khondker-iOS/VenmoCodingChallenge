@@ -20,6 +20,11 @@ private enum Constants {
 final class CoreDataService {
     static let managedContext = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
+    /**
+     Class method used to fetch the search results from CoreData
+     for a given search term if they exist
+     - parameter searchTerm: the search term entered by the user
+     */
     class func fetchSearchResults(searchTerm: String) -> [SearchResult] {
         guard let context = managedContext else { return [] }
         
@@ -38,6 +43,12 @@ final class CoreDataService {
         return results
     }
     
+    /**
+    Class method used to save the search results/songs
+    for a given search term in CoreData
+    - parameter searchTerm: the search term entered by the user
+    - parameter songs: the songs/search results returned for the given search term
+    */
     class func saveSearchResults(searchTerm: String, songs: [Song]) {
         guard let context = managedContext else { return }
         
