@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="SearchQuery" representedClassName="SearchQuery" syncable="YES">
+        <attribute name="term" optional="YES" attributeType="String"/>
+        <relationship name="searchResults" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SearchResult" inverseName="searchQueries" inverseEntity="SearchResult"/>
+    </entity>
+    <entity name="SearchResult" representedClassName="SearchResult" syncable="YES">
+        <attribute name="album" optional="YES" attributeType="String"/>
+        <attribute name="albumUrl" optional="YES" attributeType="String"/>
+        <attribute name="artist" optional="YES" attributeType="String"/>
+        <attribute name="songTitle" optional="YES" attributeType="String"/>
+        <relationship name="searchQueries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SearchQuery" inverseName="searchResults" inverseEntity="SearchQuery"/>
+    </entity>
+    <elements>
+        <element name="SearchQuery" positionX="-63" positionY="36" width="128" height="73"/>
+        <element name="SearchResult" positionX="-63" positionY="-9" width="128" height="118"/>
+    </elements>
+</model>
