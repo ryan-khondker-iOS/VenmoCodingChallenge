@@ -1,0 +1,2 @@
+# VenmoCodingChallenge
+This app allows users to search for songs in the iTunes API. After launching the app, the user can type in a search query. After entering a search query, the user will be taken to a search results page, which displays a list of songs returned for the given search query. They can then select any song in the search results page to show a detail page for the selected song, which will display the song title, artist, album, and album artwork if it exists.
